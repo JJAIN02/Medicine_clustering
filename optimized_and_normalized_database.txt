@@ -1,0 +1,24 @@
+
+CREATE TABLE Medicines (
+    MedicineID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    Manufacturer VARCHAR(255),
+    Dosage FLOAT,
+    Form VARCHAR(100),
+    Composition TEXT,
+    ClusterID INT
+);
+
+CREATE TABLE Clusters (
+    ClusterID INT AUTO_INCREMENT PRIMARY KEY,
+    Description TEXT,
+    MedicineCount INT
+);
+
+CREATE TABLE medicine_salts (
+    id SERIAL PRIMARY KEY,
+    medicine_id INT REFERENCES medicines(id) ON DELETE CASCADE,
+    salt VARCHAR(255)
+);
+
+CREATE INDEX idx_cluster ON Medicines (ClusterID);
