@@ -3,16 +3,7 @@ from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_sc
 
 
 def clustering_accuracy_script(clustered_data, ground_truth):
-    """
-    Evaluate clustering accuracy using precision, recall, F1-score, and purity.
 
-    Args:
-        clustered_data (pd.DataFrame): The dataset with predicted cluster labels.
-        ground_truth (pd.DataFrame): The manually labeled dataset.
-
-    Returns:
-        dict: Accuracy metrics (precision, recall, F1-score, purity).
-    """
     # Standardize column names and values
     clustered_data['name'] = clustered_data['name'].str.strip().str.lower()
     ground_truth['name'] = ground_truth['name'].str.strip().str.lower()
